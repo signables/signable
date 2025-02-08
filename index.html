@@ -320,39 +320,68 @@
             </a>
         </div>
     </section>
-
-    <!-- How It Works Section -->
+<!-- How It Works Section -->
 <section id="how-it-works" class="py-20 px-6 bg-black">
     <h2 class="text-4xl font-bold text-center text-primary mb-8">How It Works</h2>
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         <!-- Step 1: Fill the Order -->
-        <div class="p-8 bg-cardBg shadow-lg rounded-xl hover:scale-105 transition-transform duration-300">
-            <span class="text-4xl">📝</span> <!-- Replace with an icon -->
+        <div class="p-8 bg-cardBg shadow-lg rounded-xl">
+            <span class="text-4xl">📝</span>
             <h3 class="text-2xl font-semibold mt-4">Fill the Order</h3>
             <p class="mt-2 text-textSub">
                 Let’s get to know you more! Fill in all the details about your name, preferences, and style. The more we know, the better we can design your signature.
             </p>
+            <a href="#pricing" class="mt-4 inline-block text-primary underline hover:no-underline">View Pricing</a>
         </div>
 
         <!-- Step 2: Handcrafted Design -->
-        <div class="p-8 bg-cardBg shadow-lg rounded-xl hover:scale-105 transition-transform duration-300">
-            <span class="text-4xl">🎨</span> <!-- Replace with an icon -->
+        <div class="p-8 bg-cardBg shadow-lg rounded-xl">
+            <span class="text-4xl">🎨</span>
             <h3 class="text-2xl font-semibold mt-4">Handcrafted Design</h3>
             <p class="mt-2 text-textSub">
                 We’ll design a unique signature for your name, tailored to your style. Our designs are easy to practice and perfect for everyday use.
             </p>
+            <a href="javascript:void(0);" onclick="openPopup('popup2')" class="mt-4 inline-block text-primary underline hover:no-underline">View Example</a>
         </div>
 
         <!-- Step 3: Ready to Go -->
-        <div class="p-8 bg-cardBg shadow-lg rounded-xl hover:scale-105 transition-transform duration-300">
-            <span class="text-4xl">🚀</span> <!-- Replace with an icon -->
+        <div class="p-8 bg-cardBg shadow-lg rounded-xl">
+            <span class="text-4xl">🚀</span>
             <h3 class="text-2xl font-semibold mt-4">Ready to Go</h3>
             <p class="mt-2 text-textSub">
                 Once your signature is ready, we’ll send it to your WhatsApp and email. You’ll also get a practice sheet in PDF format, so you can start practicing right away!
             </p>
+            <a href="javascript:void(0);" onclick="openPopup('popup3')" class="mt-4 inline-block text-primary underline hover:no-underline">View Practice Sheet</a>
         </div>
     </div>
 </section>
+
+<!-- Popup Modals -->
+<div id="popup2" class="popup hidden fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center">
+    <div class="bg-white p rounded-lg relative max-w-lg">
+        <button onclick="closePopup('popup2')" class="absolute top-2 right-2 text-xl">&times;</button>
+        <img src="img/customer-5.jpg" alt="Customer Example" class="max-w-full h-auto">
+    </div>
+</div>
+
+<div id="popup3" class="popup hidden fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center">
+    <div class="bg-black p-4 rounded-lg relative max-w-lg">
+        <button onclick="closePopup('popup3')" class="absolute top-0 right-2 text-xl">&times;</button>
+        <img src="img/1.png" alt="Practice Sheet" class="max-w-full h-auto">
+    </div>
+</div>
+
+<!-- JavaScript for Popup -->
+<script>
+function openPopup(id) {
+    document.getElementById(id).classList.remove('hidden');
+}
+
+function closePopup(id) {
+    document.getElementById(id).classList.add('hidden');
+}
+</script>
+
 
     <!-- FAQ Section -->
     <section id="faq" class="py-20 px-6 bg-black">
