@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Get a handcrafted, personalized custom signature designed just for you. Signable.co creates unique, professional signatures tailored to your style. Buy your custom signature today!">
+    <meta name="keywords" content="custom signature, custom signature design, buy a signature, custom signatures, personalized signature, handcrafted signature, professional signature">
+    <meta property="og:title" content="Signable.co | Handcrafted Custom Signatures">
+    <meta property="og:description" content="Get a handcrafted, personalized custom signature designed just for you. Signable.co creates unique, professional signatures tailored to your style. Buy your custom signature today!">
+    <meta property="og:image" content="https://yourwebsite.com/img/logo.jpeg">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta name="author" content="Signable.co">
+    <title>Signable.co | Handcrafted Custom Signatures</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',  
+                        secondary: '#D946EF', 
+                        textMain: '#F3F4F6', 
+                        textSub: '#9CA3AF', 
+                        cardBg: '#1F2937' 
+                    },
+                    fontFamily: {
+                        inter: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Font (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Signable.co",
+            "url": "https://yourwebsite.com",
+            "logo": "https://yourwebsite.com/img/logo.jpeg",
+            "description": "Signable.co creates handcrafted, personalized custom signatures for individuals. Get a unique, professional signature designed just for you.",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-1234567890",
+                "contactType": "customer service",
+                "email": "support@signable.co"
+            },
+            "sameAs": [
+                "https://facebook.com/signableco",
+                "https://instagram.com/signableco",
+                "https://twitter.com/signableco"
+            ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "https://yourwebsite.com",
+            "name": "Signable.co",
+            "description": "Handcrafted custom signatures designed for individuals. Buy your personalized signature today!",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://yourwebsite.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Custom Signature Design",
+            "provider": {
+                "@type": "Organization",
+                "name": "Signable.co"
+            },
+            "description": "We create handcrafted, personalized custom signatures for individuals. Each signature is uniquely designed to reflect your personality and style.",
+            "areaServed": {
+                "@type": "Country",
+                "name": "Worldwide"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "999",
+                "priceCurrency": "INR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://yourwebsite.com"
+            }
+        }
+    </script>
+
+    <style>
+        /* Modal Styling */
+        #imageModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            display: none;
+        }
+
+        #imageModal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        #closeModal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        /* Slider Animation */
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .slider {
+            display: flex;
+            animation: slide 20s linear infinite;
+        }
+
+        /* Sticky CTA */
+        #stickyCTA {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(31, 41, 55, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 12px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Progress Bar */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #8B5CF6;
+            z-index: 1000;
+            width: 0%;
+        }
+    </style>
+</head>
+<body class="bg-black text-textMain font-inter overflow-x-hidden">
+
+    <!-- Progress Bar -->
+    <div id="progressBar"></div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+    </div>
+
+    <!-- Logo Section -->
+    <div id="logo-section" class="text-center py-6 transition-all duration-300 cursor-pointer" onclick="window.location.href='index.html'">
+        <img id="logo" src="img/logo.jpeg" alt="Signable.co Logo" class="mx-auto w-48 transition-opacity duration-300" loading="lazy">
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="py-4 sticky top-0 z-50 bg-black">
+        <ul class="flex flex-row space-x-4 px-4 md:px-0 overflow-x-auto scrollbar-hide md:overflow-visible md:justify-center">
+            <li>
+                <a href="index.html" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white focus:bg-primary focus:text-white transition duration-300 hover:underline focus:underline whitespace-nowrap">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="#how-it-works" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white focus:bg-primary focus:text-white transition duration-300 hover:underline focus:underline whitespace-nowrap">
+                    How It Works
+                </a>
+            </li>
+            <li>
+                <a href="gallery.html" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white focus:bg-primary focus:text-white transition duration-300 hover:underline focus:underline whitespace-nowrap">
+                    Gallery
+                </a>
+            </li>
+            <li>
+                <a href="#pricing" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white focus:bg-primary focus:text-white transition duration-300 hover:underline focus:underline whitespace-nowrap">
+                    Pricing
+                </a>
+            </li>
+            <li>
+                <a href="#contact" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white focus:bg-primary focus:text-white transition duration-300 hover:underline focus:underline whitespace-nowrap">
+                    Contact Us
+                </a>
+            </li>
+            <li>
+                <a href="#blog" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white focus:bg-primary focus:text-white transition duration-300 hover:underline focus:underline whitespace-nowrap">
+                    Blog
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-center justify-center py-20 px-6 text-center md:text-left">
+        <div class="w-full md:w-1/2 pl-6 md:pl-16">
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight font-serif">
+                <span class="text-primary">Get Your</span> <br>
+                Handcrafted Custom Signature
+            </h1>
+            <p class="mt-4 text-lg text-textSub">
+                Unique, personalized signatures designed just for you. Handcrafted with care to reflect your personality and style.
+            </p>
+            <p class="mt-2 text-sm text-textSub">Trusted by 1,000+ Individuals | Rated 5/5 by Customers</p>
+            <a href="#pricing" class="mt-6 inline-block bg-secondary text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-primary transition">
+                Get My Signature Now
+            </a>
+        </div>
+        <!-- GIF Section -->
+        <div class="w-full md:w-1/2 mt-10 md:mt-0">
+            <img src="img/1.gif" alt="Demo of a handcrafted custom signature animation" class="w-full max-w-md mx-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Image Slider Section -->
+    <section class="pt-10 pb-6 bg-black overflow-hidden relative">
+        <h2 class="text-3xl font-bold text-center text-primary mb-12 relative z-20">
+            Our Happy Customers
+        </h2>
+        <div class="relative w-full h-48 sm:h-64 overflow-hidden z-0">
+            <div class="flex space-x-8 sm:space-x-12 slider">
+                <!-- Images with Glassmorphism Cards -->
+                <div class="group relative">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+                        <img src="img/customer-1.jpeg" alt="Customer 1" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+                        <img src="img/customer-2.jpeg" alt="Customer 2" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+                        <img src="img/customer-3.jpeg" alt="Customer 3" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+                        <img src="img/customer-4.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+                        <img src="img/customer-5.jpg" alt="Customer 5" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+                        <img src="img/customer-6.jpg" alt="Customer 6" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+                        <img src="img/customer-7.jpg" alt="Customer 7" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+                        <img src="img/customer-8.jpg" alt="Customer 8" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+                        <img src="img/customer-9.jpg" alt="Customer 9" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+                        <img src="img/customer-10.jpg" alt="Customer 10" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    </div>
+                </div>
+                <!-- Repeat for other images -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Section -->
+    <section class="py-20 px-6 bg-black">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold text-primary">Why Choose Signable.co?</h2>
+            <p class="mt-4 text-lg text-textSub">
+                At Signable.co, we specialize in creating <strong>handcrafted, personalized custom signatures</strong> that reflect your unique personality and style. Unlike automated tools, our signatures are designed by hand, ensuring a one-of-a-kind result that stands out.
+            </p>
+            <p class="mt-4 text-lg text-textSub">
+                Whether you're a student, professional, or creative individual, our custom signatures are tailored to your needs. With easy customization, fast delivery, and unlimited revisions, we make it simple to get the perfect signature for you.
+            </p>
+            <a href="#pricing" class="mt-6 inline-block bg-secondary text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-primary transition">
+                Create My Signature Now
+            </a>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+<section id="how-it-works" class="py-20 px-6 bg-black">
+    <h2 class="text-4xl font-bold text-center text-primary mb-8">How It Works</h2>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <!-- Step 1: Fill the Order -->
+        <div class="p-8 bg-cardBg shadow-lg rounded-xl hover:scale-105 transition-transform duration-300">
+            <span class="text-4xl">📝</span> <!-- Replace with an icon -->
+            <h3 class="text-2xl font-semibold mt-4">Fill the Order</h3>
+            <p class="mt-2 text-textSub">
+                Let’s get to know you more! Fill in all the details about your name, preferences, and style. The more we know, the better we can design your signature.
+            </p>
+        </div>
+
+        <!-- Step 2: Handcrafted Design -->
+        <div class="p-8 bg-cardBg shadow-lg rounded-xl hover:scale-105 transition-transform duration-300">
+            <span class="text-4xl">🎨</span> <!-- Replace with an icon -->
+            <h3 class="text-2xl font-semibold mt-4">Handcrafted Design</h3>
+            <p class="mt-2 text-textSub">
+                We’ll design a unique signature for your name, tailored to your style. Our designs are easy to practice and perfect for everyday use.
+            </p>
+        </div>
+
+        <!-- Step 3: Ready to Go -->
+        <div class="p-8 bg-cardBg shadow-lg rounded-xl hover:scale-105 transition-transform duration-300">
+            <span class="text-4xl">🚀</span> <!-- Replace with an icon -->
+            <h3 class="text-2xl font-semibold mt-4">Ready to Go</h3>
+            <p class="mt-2 text-textSub">
+                Once your signature is ready, we’ll send it to your WhatsApp and email. You’ll also get a practice sheet in PDF format, so you can start practicing right away!
+            </p>
+        </div>
+    </div>
+</section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-6 bg-black">
+        <h2 class="text-4xl font-bold text-center text-primary mb-8">Frequently Asked Questions</h2>
+        <div class="max-w-4xl mx-auto space-y-6">
+            <div class="p-6 bg-cardBg rounded-lg">
+                <h3 class="text-xl font-semibold text-primary">How long does it take to get my signature?</h3>
+                <p class="mt-2 text-textSub">Most signatures are delivered within 24-48 hours after customization. Rush delivery options are also available.</p>
+            </div>
+            <div class="p-6 bg-cardBg rounded-lg">
+                <h3 class="text-xl font-semibold text-primary">Can I request revisions?</h3>
+                <p class="mt-2 text-textSub">Yes, we offer unlimited revisions until you're completely satisfied with your signature.</p>
+            </div>
+            <div class="p-6 bg-cardBg rounded-lg">
+                <h3 class="text-xl font-semibold text-primary">What formats will I receive?</h3>
+                <p class="mt-2 text-textSub">You'll receive high-resolution PNG, JPEG, and PDF files for easy use in emails, documents, and more.</p>
+            </div>
+            <div class="p-6 bg-cardBg rounded-lg">
+                <h3 class="text-xl font-semibold text-primary">Is there a money-back guarantee?</h3>
+                <p class="mt-2 text-textSub">Yes, we offer a 100% satisfaction guarantee. If you're not happy, we'll refund your purchase.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-6 bg-black">
+        <h2 class="text-4xl font-bold text-center text-primary">Pricing</h2>
+        <div class="mt-10 flex justify-center">
+            <div class="p-10 bg-cardBg shadow-lg rounded-xl text-center border border-secondary w-full md:w-96 hover:scale-105 transition-transform duration-300">
+                <h3 class="text-3xl font-semibold">One-Time Payment</h3>
+                <p class="text-5xl font-bold mt-2 text-primary">₹999</p>
+                <ul class="mt-4 space-y-2 text-textSub">
+                    <li>✔ Handcrafted Signature Design</li>
+                    <li>✔ Practice Sheets (PDF)</li>
+                    <li>✔ E-Signature/Digital Signature</li>
+                    <li>✔ High-Resolution Files</li>
+                    <li>✔ Unlimited Revisions</li>
+                </ul>
+                <p class="mt-4 text-sm text-textSub">100% Satisfaction Guaranteed or Your Money Back</p>
+                <button class="mt-6 bg-secondary text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-primary transition">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 px-6 bg-black">
+        <h2 class="text-4xl font-bold text-center text-primary mb-8">Blog</h2>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-6 bg-cardBg rounded-lg hover:scale-105 transition-transform duration-300">
+                <h3 class="text-xl font-semibold text-primary">How to Create a Professional Email Signature</h3>
+                <p class="mt-2 text-textSub">Learn the best practices for creating a professional email signature that stands out.</p>
+                <a href="#" class="mt-4 inline-block text-secondary hover:text-primary transition">Read More →</a>
+            </div>
+            <div class="p-6 bg-cardBg rounded-lg hover:scale-105 transition-transform duration-300">
+                <h3 class="text-xl font-semibold text-primary">Why Your Signature Matters</h3>
+                <p class="mt-2 text-textSub">Discover how a custom signature can enhance your personal brand and professionalism.</p>
+                <a href="#" class="mt-4 inline-block text-secondary hover:text-primary transition">Read More →</a>
+            </div>
+            <div class="p-6 bg-cardBg rounded-lg hover:scale-105 transition-transform duration-300">
+                <h3 class="text-xl font-semibold text-primary">Top 5 Benefits of Digital Signatures</h3>
+                <p class="mt-2 text-textSub">Explore the advantages of using digital signatures in your personal and professional life.</p>
+                <a href="#" class="mt-4 inline-block text-secondary hover:text-primary transition">Read More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 text-center bg-black">
+        <h2 class="text-4xl font-bold text-primary">Contact Us</h2>
+        <p class="mt-4 text-lg text-textSub">We'd love to hear from you!</p>
+        <form class="mt-6 max-w-md mx-auto" onsubmit="return validateForm()">
+            <input type="text" placeholder="Your Name" class="mt-4 px-6 py-4 rounded-lg w-full text-gray-900" required>
+            <input type="email" placeholder="Your Email" class="mt-4 px-6 py-4 rounded-lg w-full text-gray-900" required>
+            <textarea placeholder="Your Message" class="mt-4 px-6 py-4 rounded-lg w-full text-gray-900" rows="4" required></textarea>
+            <button class="mt-6 bg-primary px-10 py-4 rounded-lg text-white font-semibold text-lg hover:bg-secondary transition">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cardBg text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-lg font-semibold">Quick Links</h3>
+                <ul class="mt-4 space-y-2">
+                    <li><a href="index.html" class="text-textSub hover:text-primary transition">Home</a></li>
+                    <li><a href="#how-it-works" class="text-textSub hover:text-primary transition">How It Works</a></li>
+                    <li><a href="#contact" class="text-textSub hover:text-primary transition">Contact Us</a></li>
+                    <li><a href="#" class="text-textSub hover:text-primary transition">Refund Policy</a></li>
+                    <li><a href="#" class="text-textSub hover:text-primary transition">Privacy Policy</a></li>
+                    <li><a href="gallery.html" class="text-textSub hover:text-primary transition">Gallery</a></li>
+                    <li><a href="#blog" class="text-textSub hover:text-primary transition">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold">Services</h3>
+                <ul class="mt-4 space-y-2">
+                    <li><a href="#" class="text-textSub hover:text-primary transition">Custom Signatures</a></li>
+                    <li><a href="#" class="text-textSub hover:text-primary transition">Email Branding</a></li>
+                    <li><a href="#" class="text-textSub hover:text-primary transition">Practice Sheets</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold">Support</h3>
+                <ul class="mt-4 space-y-2">
+                    <li><a href="#faq" class="text-textSub hover:text-primary transition">FAQ</a></li>
+                    <li><a href="#" class="text-textSub hover:text-primary transition">Help Center</a></li>
+                    <li><a href="#" class="text-textSub hover:text-primary transition">Live Chat</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold">Follow Us</h3>
+                <ul class="mt-4 space-y-2">
+                    <li><a href="#" class="text-textSub hover:text-primary transition">Facebook</a></li>
+                    <li><a href="#" class="text-textSub hover:text-primary transition">Instagram</a></li>
+                    <li><a href="#" class="text-textSub hover:text-primary transition">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-8 border-t border-white/10 pt-8">
+            <p>&copy; 2024 Signable.co. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA -->
+    <div id="stickyCTA">
+        <a href="#pricing" class="bg-secondary text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-primary transition">
+            Get Your Signature Now – Only ₹999!
+        </a>
+    </div>
+
+    <!-- Back-to-Top Button -->
+    <button id="backToTop" class="fixed bottom-4 right-4 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-secondary transition hidden">
+        ↑
+    </button>
+
+    <!-- Modal -->
+    <div id="imageModal">
+        <span id="closeModal" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="Modal Image">
+        <p id="modalText" class="text-white mt-4 text-center"></p>
+    </div>
+
+    <script>
+        // Modal Functions
+        function openModal(src, text) {
+            document.getElementById('modalImage').src = src;
+            document.getElementById('modalText').innerText = text;
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Loading Spinner
+        window.addEventListener('load', function() {
+            document.getElementById('loadingSpinner').style.display = 'none';
+        });
+
+        // Progress Bar
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progressBar').style.width = scrollPercent + '%';
+        });
+
+        // Back-to-Top Button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Form Validation
+        function validateForm() {
+            const name = document.querySelector('input[type="text"]').value;
+            const email = document.querySelector('input[type="email"]').value;
+            const message = document.querySelector('textarea').value;
+
+            if (!name || !email || !message) {
+                alert('Please fill out all fields.');
+                return false;
+            }
+
+            if (!email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
