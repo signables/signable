@@ -59,7 +59,7 @@
         }
         #closeModal {
             position: absolute;
-            top: 20px;
+            top: 152px;
             right: 30px;
             font-size: 2rem;
             color: white;
@@ -187,6 +187,20 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* Sticky CTA */
+        #stickyCTA {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(31, 41, 55, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 12px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body class="bg-black text-textMain font-inter overflow-x-hidden">
@@ -225,8 +239,8 @@
     <h2 class="text-4xl font-bold text-center text-primary mb-10">Gallery</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <!-- Image Card 1 -->
-        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-3.jpeg')">
-            <img src="img/customer-3.jpeg" alt="Customer 1" class="w-full h-full object-fill rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-1.jpeg')">
+            <img src="img/customer-1.jpeg" alt="Customer 1" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
         </div>
         <!-- Image Card 2 -->
         <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-2.jpeg')">
@@ -234,11 +248,38 @@
         </div>
         <!-- Image Card 3 -->
         <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-3.jpeg')">
-            <img src="img/customer-3.jpeg" alt="Customer 3" class="w-full h-full object-fill rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+            <img src="img/customer-3.jpeg" alt="Customer 3" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
         </div>
         <!-- Image Card 4 -->
-        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-2.jpeg')">
-            <img src="img/customer-2.jpeg" alt="Customer 4" class="w-full h-full object-fill rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-4.jpg')">
+            <img src="img/customer-4.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        </div>
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-5.jpg')">
+            <img src="img/customer-5.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        </div>
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-6.jpg')">
+            <img src="img/customer-6.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        </div>
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-7.jpg')">
+            <img src="img/customer-7.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        </div>
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-8.jpg')">
+            <img src="img/customer-8.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        </div>
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-9.jpg')">
+            <img src="img/customer-9.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        </div>
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-10.jpg')">
+            <img src="img/customer-10.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        </div>
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-11.jpg')">
+            <img src="img/customer-11.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        </div>
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-12.jpg')">
+            <img src="img/customer-12.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+        </div>
+        <div class="w-full h-48 sm:h-56 bg-black/20 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all duration-500 transform hover:scale-105 overflow-hidden" onclick="openModal('img/customer-13.jpg')">
+            <img src="img/customer-13.jpg" alt="Customer 4" class="w-full h-full object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
         </div>
         <!-- Add more images as needed -->
     </div>
@@ -254,6 +295,11 @@
         <div class="arrow-right arrow" onclick="changeImage(1)">&#8594;</div>
         <div class="swipe-text">Swipe for more...</div>
     </div>
+    <div id="stickyCTA">
+        <a href="#pricing" class="bg-secondary text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-primary transition">
+            Get Your Signature Now – Only ₹999!
+        </a>
+    </div>
     <!-- Footer -->
     <footer class="py-6 bg-cardBg text-center text-textSub mt-10">
         &copy; 2025 Signable.co - All Rights Reserved
@@ -264,7 +310,19 @@
         const images = [
             'img/customer-3.jpeg',
             'img/customer-2.jpeg',
+            'img/customer-1.jpeg',
+            'img/customer-4.jpg',
+            'img/customer-5.jpg',
+            'img/customer-6.jpg',
+            'img/customer-7.jpg',
+            'img/customer-8.jpg',
+            'img/customer-9.jpg',
+            'img/customer-10.jpg',
+            'img/customer-11.jpg',
+            'img/customer-12.jpg',
+            'img/customer-13.jpg',
             'img/customer-1.jpeg'
+
             // Add more image paths as needed
         ];
         function openModal(imageSrc) {
