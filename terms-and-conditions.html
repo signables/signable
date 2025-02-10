@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions | Signable.co</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',  
+                        secondary: '#D946EF', 
+                        textMain: '#F3F4F6', 
+                        textSub: '#9CA3AF', 
+                        cardBg: '#1F2937' 
+                    },
+                    fontFamily: {
+                        inter: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-textMain font-inter overflow-x-hidden">
+    <div id="logo-section" class="text-center py-6 cursor-pointer" onclick="window.location.href='index.html'">
+        <img id="logo" src="img/logo.jpeg" alt="Signable.co Logo" class="mx-auto w-48">
+    </div>
+    <nav id="navbar" class="py-4 sticky top-0 z-50 bg-black">
+        <ul class="flex flex-row space-x-4 px-4 md:px-0 justify-center">
+            <li><a href="index.html" class="inline-block px-4 py-3 bg-cardBg text-textSub rounded-full hover:bg-primary hover:text-white">Home</a></li>
+            <li><a href="#how-it-works" class="inline-block px-4 py-3 bg-cardBg text-textSub rounded-full hover:bg-primary hover:text-white">How It Works</a></li>
+            <li><a href="#pricing" class="inline-block px-4 py-3 bg-cardBg text-textSub rounded-full hover:bg-primary hover:text-white">Pricing</a></li>
+            <li><a href="#contact" class="inline-block px-4 py-3 bg-cardBg text-textSub rounded-full hover:bg-primary hover:text-white">Contact Us</a></li>
+        </ul>
+    </nav>
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto bg-cardBg p-8 rounded-lg shadow-lg">
+            <h2 class="text-4xl font-bold text-center text-primary mb-10">Terms and Conditions</h2>
+            <div class="space-y-6 text-textSub">
+                <p>Welcome to Signable.co! By using our website and services, you agree to comply with the following terms and conditions.</p>
+                <h3 class="text-2xl font-bold text-primary">1. Use of Our Services</h3>
+                <p>Our services are provided for lawful purposes only. You may not use our platform for any illegal activities.</p>
+                <h3 class="text-2xl font-bold text-primary">2. Account Responsibilities</h3>
+                <p>You are responsible for maintaining the confidentiality of your account and for all activities conducted under your login credentials.</p>
+                <h3 class="text-2xl font-bold text-primary">3. Payment and Refund Policy</h3>
+                <p>All payments are final. Refunds will be processed only in cases where errors are caused by our platform.</p>
+                <h3 class="text-2xl font-bold text-primary">4. Intellectual Property</h3>
+                <p>All content on this site, including logos, text, and design, is owned by Signable.co and protected by intellectual property laws.</p>
+                <h3 class="text-2xl font-bold text-primary">5. Termination</h3>
+                <p>We reserve the right to suspend or terminate your account if you violate these terms.</p>
+                <h3 class="text-2xl font-bold text-primary">6. Changes to Terms</h3>
+                <p>We may update these terms periodically. Continued use of our services constitutes acceptance of any changes.</p>
+                <p>For any queries, contact us at <a href="mailto:support@signable.co" class="text-primary underline">support@signable.co</a>.</p>
+            </div>
+        </div>
+    </section>
+    <footer class="py-6 bg-cardBg text-center text-textSub mt-10">&copy; 2025 Signable.co - All Rights Reserved</footer>
+</body>
+</html>
