@@ -441,30 +441,29 @@ function closePopup(id) {
         </div>
     </section>
 
-<!-- Pricing Section -->
-<section id="pricing" class="py-20 px-6 bg-black">
-    <h2 class="text-4xl font-bold text-center text-primary">Pricing</h2>
-    <div class="mt-10 flex justify-center">
-        <div class="p-10 bg-cardBg shadow-lg rounded-xl text-center border border-secondary w-full md:w-96 hover:scale-105 transition-transform duration-300">
-            <h3 class="text-3xl font-semibold">One-Time Payment</h3>
-            <p class="text-5xl font-bold mt-2 text-primary">₹999</p>
-            <ul class="mt-4 space-y-2 text-textSub">
-                <li>✔ Handcrafted Signature Design</li>
-                <li>✔ Practice Sheets (PDF)</li>
-                <li>✔ E-Signature/Digital Signature</li>
-                <li>✔ High-Resolution Files</li>
-                <li>✔ 2 Revisions</li>
-            </ul>
-            <p class="mt-4 text-sm text-textSub">100% Satisfaction Guaranteed or Your Money Back</p>
-            <button 
-                onclick="window.location.href='buy-now.html'" 
-                class="mt-6 bg-secondary text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-primary transition"
-            >
-                Buy Now
-            </button>
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-6 bg-black">
+        <h2 class="text-4xl font-bold text-center text-primary">Pricing</h2>
+        <div class="mt-10 flex justify-center">
+            <div class="p-10 bg-cardBg shadow-lg rounded-xl text-center border border-secondary w-full md:w-96 hover:scale-105 transition-transform duration-300">
+                <h3 class="text-3xl font-semibold">One-Time Payment</h3>
+                <p class="text-5xl font-bold mt-2 text-primary">
+                    <span class="currency">₹</span><span class="price">999</span>
+                </p>
+                <ul class="mt-4 space-y-2 text-textSub">
+                    <li>✔ Handcrafted Signature Design</li>
+                    <li>✔ Practice Sheets (PDF)</li>
+                    <li>✔ E-Signature/Digital Signature</li>
+                    <li>✔ High-Resolution Files</li>
+                    <li>✔ 2 Revisions</li>
+                </ul>
+                <p class="mt-4 text-sm text-textSub">100% Satisfaction Guaranteed or Your Money Back</p>
+                <button onclick="window.location.href='buy-now.html'" class="cta-button">Buy Now</button>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    
 
     <!-- Blog Section -->
     <section id="blog" class="py-20 px-6 bg-black">
@@ -548,9 +547,10 @@ function closePopup(id) {
     <!-- Sticky CTA -->
     <div id="stickyCTA">
         <a href="#pricing" class="bg-secondary text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-primary transition">
-            Get Your Signature Now – Only ₹999!
+            Get Your Signature Now – Only <span class="currency">₹</span><span class="price">999</span>!
         </a>
     </div>
+
 
     <!-- Back-to-Top Button -->
     <button id="backToTop" class="fixed bottom-4 right-4 bg-primary text-red p-3 rounded-full shadow-lg hover:bg-secondary transition hidden">
@@ -622,5 +622,6 @@ function closePopup(id) {
             return true;
         }
     </script>
+    <script src="geo.js"></script>
 </body>
 </html>
