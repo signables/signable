@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const currencyElements = document.querySelectorAll(".currency");
 
             // Define Payment Links
-            const razorpayLink = "https://rzp.io/rzp/q5w7zXoP";  // Replace with actual Razorpay link
+            const razorpayLink = "#";  // Replace with actual Razorpay link
             const paypalLink = "https://www.paypal.com/ncp/payment/BB4TF2NEW8HBL";  // Replace with actual PayPal link
 
             if (userCountry === "IN") {
