@@ -319,9 +319,9 @@
             })
             .then(() => {
                 // Redirect to Razorpay test payment page
-                window.location.href = "https://rzp.io/rzp/q5w7zXoP";
+                window.location.href = "#"; //razor pay link here
                 // Get the correct payment link from localStorage
-            const paymentLink = localStorage.getItem("paymentLink") || "https://rzp.io/rzp/q5w7zXoP"; 
+            const paymentLink = localStorage.getItem("paymentLink") || "https://rzp.io/"; // razor pay link here 
 
             // Redirect to the appropriate payment gateway
             window.location.href = paymentLink;
