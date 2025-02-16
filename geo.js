@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const paypalLink = "https://www.paypal.com/ncp/payment/BB4TF2NEW8HBL";  // Replace with actual PayPal link
 
             if (userCountry === "IN") {
-                priceElements.forEach(el => el.textContent = "999");
+                priceElements.forEach(el => el.textContent = "1,999");
                 currencyElements.forEach(el => el.textContent = "₹");
                 localStorage.setItem("paymentLink", razorpayLink);  // Save Razorpay link
             } else {
-                priceElements.forEach(el => el.textContent = "12");
+                priceElements.forEach(el => el.textContent = "19");
                 currencyElements.forEach(el => el.textContent = "$");
                 localStorage.setItem("paymentLink", paypalLink);  // Save PayPal link
             }
