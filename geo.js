@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Define Payment Links
             const razorpayLink = "#";  // Replace with actual Razorpay link
-            const paypalLink = "#";  // Replace with actual PayPal link
+            const paypalLink = "https://www.paypal.com/ncp/payment/BB4TF2NEW8HBL";  // Replace with actual PayPal link
 
             if (userCountry === "IN") {
                 priceElements.forEach(el => el.textContent = "999");
