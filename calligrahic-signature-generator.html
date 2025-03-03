@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Calligraphy Signature Generator – Signable.co</title>
+    <meta name="description" content="Create exclusive calligraphic signatures with Signable.co's premium generator. Unlock unlimited downloads for just 99rs.">
+    <meta name="keywords" content="premium signature generator, calligraphy signature generator, custom signature">
+    <meta name="author" content="Signable.co">
+    <link rel="canonical" href="https://signables.co/paid.html">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Premium Calligraphy Signature Generator | Signable.co">
+    <meta property="og:description" content="Create exclusive calligraphic signatures with unlimited downloads for just 99rs.">
+    <meta property="og:image" content="https://signables.co/img/logo.jpeg">
+    <meta property="og:url" content="https://signables.co/paid.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',  
+                        secondary: '#D946EF', 
+                        textMain: '#F3F4F6', 
+                        textSub: '#9CA3AF', 
+                        cardBg: '#1F2937' 
+                    },
+                    fontFamily: {
+                        inter: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts for Calligraphy -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Rochester&family=Pinyon+Script&family=Montez&family=Mrs+Saint+Delafield&family=Bilbo+Swash+Caps&family=Great+Vibes&family=La+Belle+Aurore&family=Parisienne&family=Dancing+Script&family=Allura&family=Alex+Brush&family=Arizonia&family=Calligraffitti&family=Cedarville+Cursive&family=Cinzel+Decorative&family=Courgette&family=Damion&family=Felipa&family=Give+You+Glory&family=Homemade+Apple&family=Kaushan+Script&family=Lobster&family=Marck+Script&family=Pacifico&family=Petit+Formal+Script&family=Qwigley&family=Raleway+Dots&family=Sacramento&family=Satisfy&family=Shadows+Into+Light&family=Tangerine&family=Zeyada&family=Charm&family=Cormorant+Garamond&family=Italianno&family=Niconne&family=Playball&family=Quintessential&family=Ruthie&family=Sofia&family=Yellowtail&family=Amatic+SC&family=Bad+Script&family=Berkshire+Swash&family=Cookie&family=Crafty+Girls&family=Euphoria+Script&family=Fondamento&family=Gabriela&family=Handlee&family=Indie+Flower&family=Jacques+Francois&family=Jacques+Francois+Shadow&family=Julee&family=Just+Another+Hand&family=Kristi&family=Lily+Script+One&family=Lora&family=Love+Ya+Like+A+Sister&family=Margarine&family=Meie+Script&family=Monsieur+La+Doulaise&family=Moon+Dance&family=Nothing+You+Could+Do&family=Over+the+Rainbow&family=Pattaya&family=Permanent+Marker&family=Princess+Sofia&family=Reenie+Beanie&family=Righteous&family=Rock+Salt&family=Roboto+Slab&family=Seaweed+Script&family=Shojumaru&family=Special+Elite&family=Stalemate&family=The+Girl+Next+Door&family=UnifrakturCook&family=Vibur&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-textMain font-inter overflow-x-hidden">
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+        <div class="text-white text-2xl font-semibold">Please wait...</div>
+    </div>
+
+    <!-- Section 1: Header -->
+    <div id="logo-section" class="text-center py-6 transition-all duration-300 cursor-pointer" onclick="window.location.href='https://signables.co/'">
+        <img id="logo" src="img/logo.jpeg" alt="Signable.co Logo" class="mx-auto w-48 transition-opacity duration-300">
+    </div>
+    <nav id="navbar" class="py-4 sticky top-0 z-50 bg-black">
+        <ul class="flex flex-row space-x-4 px-4 md:px-0 overflow-x-auto scrollbar-hide md:overflow-visible md:justify-center">
+            <li><a href="https://signables.co/" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white transition duration-300 whitespace-nowrap">Home</a></li>
+            <li><a href="gallery.html" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white transition duration-300 whitespace-nowrap">Gallery</a></li>
+            <li><a href="contact.html" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white transition duration-300 whitespace-nowrap">Contact Us</a></li>
+            <li><a href="https://www.instagram.com/sign.ables/" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white transition duration-300 whitespace-nowrap">Instagram</a></li>
+            <li id="authButton"></li>
+        </ul>
+    </nav>
+
+    <!-- Section 2: Banner Ad -->
+    <div id="bannerAd" class="relative flex flex-col items-center justify-center bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white text-center py-8 px-6 rounded-xl shadow-2xl mx-4 overflow-hidden">
+        <div class="absolute inset-0 bg-white opacity-10 blur-3xl"></div>
+        <p class="text-2xl font-extrabold drop-shadow-lg">
+            ✨ Get a <span class="text-yellow-300">Premium Calligraphic Signature</span> Tailored for You! ✨
+        </p>
+        <p class="mt-2 text-lg font-semibold bg-white/20 px-4 py-2 rounded-lg shadow-lg">
+            🔥 Unlimited Downloads for Just <span class="text-yellow-300 text-2xl font-bold">99rs</span>!
+        </p>
+        <button onclick="window.location.href='https://rzp.io/rzp/n9UK31g'" class="relative mt-6 inline-block px-10 py-4 bg-yellow-300 text-gray-900 font-bold text-lg rounded-full shadow-lg hover:bg-yellow-400 hover:shadow-yellow-400/50 transition-all duration-300 transform hover:scale-110">
+            Buy Now 🚀
+        </button>
+        <div class="absolute -top-10 right-10 w-24 h-24 bg-white opacity-20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-10 left-10 w-16 h-16 bg-white opacity-20 rounded-full blur-3xl animate-pulse"></div>
+    </div>
+
+    <!-- New: Logged-in User Banner Ad -->
+    <div id="loggedInBanner" class="hidden relative flex flex-col items-center justify-center bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white text-center py-4 px-6 rounded-b-xl shadow-2xl mx-4 overflow-hidden">
+        <div class="absolute inset-0 bg-white opacity-10 blur-3xl"></div>
+        <p class="text-xl font-extrabold drop-shadow-lg">
+            ✨ Look for more handwritten custom signatures by now for 999 rs! ✨
+        </p>
+        <button onclick="window.location.href='buy-now.html'" class="relative mt-2 inline-block px-8 py-3 bg-yellow-300 text-gray-900 font-bold text-lg rounded-full shadow-lg hover:bg-yellow-400 hover:shadow-yellow-400/50 transition-all duration-300 transform hover:scale-105">
+            Buy Now 🚀
+        </button>
+        <div class="absolute -top-8 right-8 w-20 h-20 bg-white opacity-20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-8 left-8 w-16 h-16 bg-white opacity-20 rounded-full blur-3xl animate-pulse"></div>
+    </div>
+
+    <!-- Section 3: Signature Generator -->
+    <section class="container mx-auto px-4 py-12">
+        <h1 id="generatorTitle" class="text-4xl font-extrabold text-center mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Premium Calligraphy Signature Generator</h1>
+        <p class="text-center text-textSub mb-10 text-lg">Craft your unique signature with elegant calligraphy styles</p>
+        <div class="max-w-3xl mx-auto bg-cardBg p-6 rounded-2xl shadow-xl border border-gray-700">
+            <div class="flex flex-col md:flex-row gap-4 items-center">
+                <div class="relative w-full md:w-3/4">
+                    <input type="text" id="name" name="name" placeholder="Enter your name" class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-textMain focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-gray-500" required>
+                    <span class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-gray-500 transition-all duration-300 peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-primary"></span>
+                </div>
+                <button type="submit" id="generateButton" onclick="generateSignatures()" class="w-full md:w-1/4 px-4 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-lg shadow-md hover:from-secondary hover:to-primary hover:scale-105 transition-all duration-300">Generate</button>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between mt-6">
+                <div class="w-full md:w-auto flex items-center gap-3">
+                    <label for="colorSlider" class="text-sm font-medium text-textSub">Color</label>
+                    <div class="relative w-48 h-3 bg-gray-700 rounded-full overflow-hidden" style="background: linear-gradient(to right, white, red, orange, yellow, green, blue, indigo, violet, black);">
+                        <input type="range" id="colorSlider" min="0" max="360" value="0" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                        <div id="colorPreview" class="absolute top-0 -mt-1 w-5 h-5 bg-white rounded-full shadow-md border-2 border-gray-800" style="left: 0%; transform: translateX(-50%);"></div>
+                    </div>
+                </div>
+                <div class="w-full md:w-auto flex items-center gap-3">
+                    <label for="fontSizeSlider" class="text-sm font-medium text-textSub">Size</label>
+                    <input type="range" id="fontSizeSlider" min="10" max="100" value="48" class="w-24 h-2 bg-gray-700 rounded-full appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary" style="accent-color: #8B5CF6;">
+                </div>
+                <div class="w-full md:w-auto flex items-center gap-3">
+                    <label for="bgColorSelect" class="text-sm font-medium text-textSub">Background</label>
+                    <select id="bgColorSelect" class="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded-lg text-textMain focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option value="black" selected>Black</option>
+                        <option value="white">White</option>
+                    </select>
+                </div>
+                <button onclick="clearSignatures()" class="w-full md:w-auto px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 transition duration-300">Clear</button>
+            </div>
+        </div>
+        <div id="signatureContainer" class="max-w-7xl mx-auto mt-10 hidden">
+            <h2 class="text-2xl font-bold text-center mb-8 text-textMain">Your Signatures</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="signatureGrid"></div>
+        </div>
+    </section>
+
+    <!-- Section 4: Download Popup -->
+    <div id="downloadPopup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-cardBg p-8 rounded-lg shadow-lg text-center relative max-w-md w-full">
+            <button onclick="closeDownloadPopup()" class="absolute top-2 right-2 text-textSub hover:text-primary transition duration-300">×</button>
+            <h2 class="text-2xl font-bold mb-6 text-[#FFD700]">Unlock Unlimited Downloads</h2>
+            <p class="text-textSub mb-6">Get unlimited downloads for just <span class="text-yellow-300 font-bold">99rs</span>!</p>
+            <button onclick="window.location.href='https://rzp.io/rzp/n9UK31g'" class="w-full px-4 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-secondary transition duration-300">Buy Now</button>
+        </div>
+    </div>
+
+    <!-- Section 5: Login Popup -->
+    <div id="loginPopup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-cardBg p-8 rounded-lg shadow-lg text-center relative max-w-md w-full">
+            <button onclick="closeLoginPopup()" class="absolute top-2 right-2 text-textSub hover:text-primary transition duration-300">×</button>
+            <h2 class="text-2xl font-bold mb-6">Login to Your Account</h2>
+            <p class="text-textSub mb-4">Having trouble logging in? Email us at <a href="/cdn-cgi/l/email-protection#efdcdadfdfc0dddbefdcc6c8c1cecdc3cadc81ccc0" class="text-primary hover:underline"><span class="__cf_email__" data-cfemail="380b0d0808170a0c380b111f16191a141d0b561b17">[email&#160;protected]</span></a></p>
+            <form onsubmit="loginUser(event)">
+                <input type="text" id="loginCredential" placeholder="Enter your email or phone number" class="w-full px-4 py-3 mb-4 bg-black border border-cardBg rounded-lg shadow-sm focus:outline-none focus:border-primary" required>
+                <button type="submit" class="w-full px-4 py-3 bg-[#FFD700] text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-400 transition duration-300">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Section 6: Paid Popup -->
+    <div id="paidPopup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-cardBg p-8 rounded-lg shadow-lg text-center relative max-w-md w-full">
+            <button onclick="closePaidPopup()" class="absolute top-2 right-2 text-textSub hover:text-primary transition duration-300">×</button>
+            <h2 class="text-2xl font-bold mb-6 text-[#FFD700]">Activate Your Premium Access</h2>
+            <p class="text-textSub mb-4">Already purchased? <a href="#login" class="text-primary hover:underline">Login here</a></p>
+            <p class="text-textSub mb-6">Enter your details to activate unlimited downloads.</p>
+            <form onsubmit="registerUser(event)">
+                <input type="email" id="email" placeholder="Enter your email" class="w-full px-4 py-3 mb-4 bg-black border border-cardBg rounded-lg shadow-sm focus:outline-none focus:border-primary" required>
+                <input type="tel" id="whatsapp" placeholder="Enter your WhatsApp number" class="w-full px-4 py-3 mb-4 bg-black border border-cardBg rounded-lg shadow-sm focus:outline-none focus:border-primary" required>
+                <button type="submit" class="w-full px-4 py-3 bg-[#FFD700] text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-400 transition duration-300">Activate</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Section 7: Footer -->
+    <footer class="relative bg-[#0D1117] text-white py-6">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+            <div class="flex flex-col space-y-4">
+                <h2 class="text-2xl font-bold">Signable</h2>
+                <p class="text-sm text-gray-400">Your trusted digital signature solution.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-lg font-semibold">Quick Links</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="https://signables.co/" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition">Contact Us</a></li>
+                        <li><a href="https://signables.co/privacy-policy.html" class="hover:text-primary transition">Privacy Policy</a></li>
+                        <li><a href="https://signables.co/refund-policy.html" class="hover:text-primary transition">Refund Policy</a></li>
+                        <li><a href="https://signables.co/terms-and-conditions.html" class="hover:text-primary transition">Terms and Condition</a></li>
+                        <li><a href="gallery.html" class="hover:text-primary transition">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold">Support</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#faq" class="hover:text-primary transition">FAQ</a></li>
+                        <li><a href="https://wa.me/16479306728" class="hover:text-primary transition">WhatsApp Us</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#2a595f5a5a45585e6a594349405d505e5940044945" class="hover:text-primary transition">Email Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-6">
+                <h3 class="text-lg font-semibold">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/signables/" class="p-3 bg-white/10 rounded-full hover:bg-primary transition"><i class="fab fa-facebook-f text-white"></i></a>
+                    <a href="https://www.instagram.com/sign.ables/" class="p-3 bg-white/10 rounded-full hover:bg-primary transition"><i class="fab fa-instagram text-white"></i></a>
+                </div>
+                <h3 class="text-lg font-semibold">Stay Updated</h3>
+                <div class="relative w-full max-w-sm">
+                    <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 rounded-lg bg-white/10 focus:outline-none">
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 px-5 py-3 bg-primary rounded-lg">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 border-t border-white/10 pt-6 text-gray-400">© 2025 Signables. All rights reserved.</div>
+    </footer>
+
+    <!-- Section 8: JavaScript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        // Constants and State
+        const signatureStyles = [
+            { name: "Herr Von Muellerhoff", font: "Herr Von Muellerhoff" },
+            { name: "Rochester", font: "Rochester" },
+            { name: "Pinyon Script", font: "Pinyon Script" },
+            { name: "Montez", font: "Montez" },
+            { name: "Mrs Saint Delafield", font: "Mrs Saint Delafield" },
+            { name: "Bilbo Swash Caps", font: "Bilbo Swash Caps" },
+            { name: "Great Vibes", font: "Great Vibes" },
+            { name: "La Belle Aurore", font: "La Belle Aurore" },
+            { name: "Parisienne", font: "Parisienne" },
+            { name: "Dancing Script", font: "Dancing Script" },
+            { name: "Allura", font: "Allura" },
+            { name: "Alex Brush", font: "Alex Brush" },
+            { name: "Arizonia", font: "Arizonia" },
+            { name: "Calligraffitti", font: "Calligraffitti" },
+            { name: "Cedarville Cursive", font: "Cedarville Cursive" },
+            { name: "Cinzel Decorative", font: "Cinzel Decorative" },
+            { name: "Courgette", font: "Courgette" },
+            { name: "Damion", font: "Damion" },
+            { name: "Felipa", font: "Felipa" },
+            { name: "Give You Glory", font: "Give You Glory" },
+            { name: "Homemade Apple", font: "Homemade Apple" },
+            { name: "Kaushan Script", font: "Kaushan Script" },
+            { name: "Lobster", font: "Lobster" },
+            { name: "Marck Script", font: "Marck Script" },
+            { name: "Pacifico", font: "Pacifico" },
+            { name: "Petit Formal Script", font: "Petit Formal Script" },
+            { name: "Qwigley", font: "Qwigley" },
+            { name: "Raleway Dots", font: "Raleway Dots" },
+            { name: "Sacramento", font: "Sacramento" },
+            { name: "Satisfy", font: "Satisfy" },
+            { name: "Shadows Into Light", font: "Shadows Into Light" },
+            { name: "Tangerine", font: "Tangerine" },
+            { name: "Zeyada", font: "Zeyada" },
+            { name: "Charm", font: "Charm" },
+            { name: "Cormorant Garamond", font: "Cormorant Garamond" },
+            { name: "Italianno", font: "Italianno" },
+            { name: "Niconne", font: "Niconne" },
+            { name: "Playball", font: "Playball" },
+            { name: "Quintessential", font: "Quintessential" },
+            { name: "Ruthie", font: "Ruthie" },
+            { name: "Sofia", font: "Sofia" },
+            { name: "Yellowtail", font: "Yellowtail" },
+            { name: "Amatic SC", font: "Amatic SC" },
+            { name: "Bad Script", font: "Bad Script" },
+            { name: "Berkshire Swash", font: "Berkshire Swash" },
+            { name: "Cookie", font: "Cookie" },
+            { name: "Crafty Girls", font: "Crafty Girls" },
+            { name: "Euphoria Script", font: "Euphoria Script" },
+            { name: "Fondamento", font: "Fondamento" },
+            { name: "Gabriela", font: "Gabriela" },
+            { name: "Handlee", font: "Handlee" },
+            { name: "Indie Flower", font: "Indie Flower" },
+            { name: "Jacques Francois", font: "Jacques Francois" },
+            { name: "Jacques Francois Shadow", font: "Jacques Francois Shadow" },
+            { name: "Julee", font: "Julee" },
+            { name: "Just Another Hand", font: "Just Another Hand" },
+            { name: "Kristi", font: "Kristi" },
+            { name: "Lily Script One", font: "Lily Script One" },
+            { name: "Lora", font: "Lora" },
+            { name: "Love Ya Like A Sister", font: "Love Ya Like A Sister" },
+            { name: "Margarine", font: "Margarine" },
+            { name: "Meie Script", font: "Meie Script" },
+            { name: "Monsieur La Doulaise", font: "Monsieur La Doulaise" },
+            { name: "Moon Dance", font: "Moon Dance" },
+            { name: "Nothing You Could Do", font: "Nothing You Could Do" },
+            { name: "Over the Rainbow", font: "Over the Rainbow" },
+            { name: "Pattaya", font: "Pattaya" },
+            { name: "Permanent Marker", font: "Permanent Marker" },
+            { name: "Princess Sofia", font: "Princess Sofia" },
+            { name: "Reenie Beanie", font: "Reenie Beanie" },
+            { name: "Righteous", font: "Righteous" },
+            { name: "Rock Salt", font: "Rock Salt" },
+            { name: "Roboto Slab", font: "Roboto Slab" },
+            { name: "Seaweed Script", font: "Seaweed Script" },
+            { name: "Shojumaru", font: "Shojumaru" },
+            { name: "Special Elite", font: "Special Elite" },
+            { name: "Stalemate", font: "Stalemate" },
+            { name: "The Girl Next Door", font: "The Girl Next Door" },
+            { name: "UnifrakturCook", font: "UnifrakturCook" },
+            { name: "Vibur", font: "Vibur" }
+        ];
+
+        let currentColor = "white";
+        let currentFontSize = 48;
+        let currentBgColor = "black";
+        let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwfMJ8-M9aIElOWghTh-_6NblXGEdAG2pViSiiD368IwjN-NZHJFzwYSvMoE87HQqyXeA/exec';
+        const registeredEmail = localStorage.getItem('registeredEmail');
+        const registeredWhatsapp = localStorage.getItem('registeredWhatsapp');
+
+        // Initialization
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+            updateAuthButton();
+            updateBanners();
+            if (window.location.hash === '#paid' || email) {
+                showLoading(() => {
+                    document.getElementById('paidPopup').classList.remove('hidden');
+                    if (email) document.getElementById('email').value = email;
+                });
+            } else if (window.location.hash === '#login') {
+                showLoading(() => {
+                    document.getElementById('loginPopup').classList.remove('hidden');
+                });
+            }
+            if (isLoggedIn) {
+                unlockGenerator();
+            }
+        };
+
+        // Auth Button Management
+        function updateAuthButton() {
+            const authButton = document.getElementById('authButton');
+            if (isLoggedIn) {
+                authButton.innerHTML = `
+                    <button onclick="logout()" class="inline-block px-4 py-3 bg-red-500 text-white font-semibold rounded-full shadow-md hover:bg-red-600 transition duration-300 whitespace-nowrap">
+                        Logout
+                    </button>
+                `;
+            } else {
+                authButton.innerHTML = `
+                    <a href="#login" class="inline-block px-4 py-3 bg-cardBg text-textSub font-semibold rounded-full shadow-md hover:bg-primary hover:text-white transition duration-300 whitespace-nowrap">
+                        Login
+                    </a>
+                `;
+            }
+        }
+
+        // Update Banners Based on Login Status
+        function updateBanners() {
+            const loggedInBanner = document.getElementById('loggedInBanner');
+            const regularBanner = document.getElementById('bannerAd');
+            
+            if (isLoggedIn) {
+                loggedInBanner.classList.remove('hidden');
+                regularBanner.style.display = 'none';
+            } else {
+                loggedInBanner.classList.add('hidden');
+                regularBanner.style.display = 'block';
+            }
+        }
+
+        // Signature Generation
+        async function generateSignatures() {
+            const name = document.getElementById('name').value.trim();
+            if (!name) {
+                alert("Please enter your name.");
+                return;
+            }
+
+            const signatureGrid = document.getElementById('signatureGrid');
+            signatureGrid.innerHTML = "";
+            document.getElementById('signatureContainer').classList.add('hidden');
+
+            showLoading(async () => {
+                await Promise.all(
+                    signatureStyles.map(style => 
+                        document.fonts.load(`${currentFontSize}px "${style.font}"`)
+                    )
+                ).catch(err => console.error("Font loading failed:", err));
+
+                renderSignatures(name);
+                document.getElementById('signatureContainer').classList.remove('hidden');
+            });
+        }
+
+        function renderSignatures(name) {
+            const signatureGrid = document.getElementById('signatureGrid');
+            signatureGrid.innerHTML = "";
+
+            signatureStyles.forEach((style, index) => {
+                const canvas = document.createElement('canvas');
+                canvas.width = 400;
+                canvas.height = 150;
+                canvas.id = `canvas${index}`;
+                canvas.className = "w-full h-32 rounded-lg border border-gray-600 shadow-sm hover:shadow-lg transition-shadow duration-300";
+
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = currentBgColor;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                const maxWidth = canvas.width * 0.9;
+                const maxHeight = canvas.height * 0.8;
+                let fontSize = currentFontSize;
+                let textWidth, textHeight;
+
+                do {
+                    ctx.font = `${fontSize}px "${style.font}", cursive`;
+                    const metrics = ctx.measureText(name);
+                    textWidth = metrics.width;
+                    textHeight = fontSize * 1.2;
+                    fontSize--;
+                } while (textWidth > maxWidth || textHeight > maxHeight);
+
+                const x = canvas.width / 2;
+                const y = canvas.height / 2;
+
+                ctx.font = `${fontSize}px "${style.font}", cursive`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = currentColor;
+                ctx.fillText(name, x, y);
+
+                const downloadButton = document.createElement('button');
+                downloadButton.className = "mt-2 w-full px-4 py-2 bg-[#FFD700] text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-400 hover:scale-105 transition-all duration-300";
+                downloadButton.textContent = "Download Now";
+                downloadButton.onclick = () => handleDownload(index);
+
+                const container = document.createElement('div');
+                container.className = "flex flex-col items-center p-2 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700 transition-colors duration-300";
+                container.appendChild(canvas);
+                container.appendChild(downloadButton);
+                signatureGrid.appendChild(container);
+            });
+        }
+
+        function handleDownload(index) {
+            if (isLoggedIn) {
+                downloadSignature(index);
+            } else {
+                showDownloadPopup();
+            }
+        }
+
+        function downloadSignature(index) {
+            const canvas = document.getElementById(`canvas${index}`);
+            const link = document.createElement('a');
+            link.download = `signature_${signatureStyles[index].name}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        function clearSignatures() {
+            document.getElementById('signatureGrid').innerHTML = "";
+            document.getElementById('signatureContainer').classList.add('hidden');
+        }
+
+        function showDownloadPopup() {
+            document.getElementById('downloadPopup').classList.remove('hidden');
+        }
+
+        function closeDownloadPopup() {
+            document.getElementById('downloadPopup').classList.add('hidden');
+        }
+
+        // Login and Registration
+        function loginUser(event) {
+            event.preventDefault();
+            const credential = document.getElementById('loginCredential').value.trim();
+
+            if (!credential) {
+                alert("Please enter your email or phone number.");
+                return;
+            }
+
+            const storedEmail = localStorage.getItem('registeredEmail');
+            const storedWhatsapp = localStorage.getItem('registeredWhatsapp');
+            if ((storedEmail === credential || storedWhatsapp === credential) && storedEmail && storedWhatsapp) {
+                const userData = { email: storedEmail, whatsapp: storedWhatsapp, status: 'Login Attempt' };
+                fetch(SHEET_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userData)
+                })
+                .then(() => {
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('userEmail', storedEmail);
+                    localStorage.setItem('userWhatsapp', storedWhatsapp);
+                    isLoggedIn = true;
+                    document.getElementById('loginPopup').classList.add('hidden');
+                    showLoading(() => {
+                        unlockGenerator();
+                        updateAuthButton();
+                        updateBanners();
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Login failed. Please try again.');
+                });
+            } else {
+                alert('Invalid email or phone number. Please use the details registered after payment.');
+            }
+        }
+
+        function registerUser(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+
+            if (!email || !whatsapp) {
+                alert("Please enter both email and WhatsApp number.");
+                return;
+            }
+
+            const userData = { email, whatsapp, status: 'Payment Done' };
+            fetch(SHEET_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userData)
+            })
+            .then(() => {
+                localStorage.setItem('registeredEmail', email);
+                localStorage.setItem('registeredWhatsapp', whatsapp);
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userWhatsapp', whatsapp);
+                isLoggedIn = true;
+                document.getElementById('paidPopup').classList.add('hidden');
+                showLoading(() => {
+                    unlockGenerator();
+                    updateAuthButton();
+                    updateBanners();
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Registration failed. Please try again.');
+            });
+        }
+
+        function closeLoginPopup() {
+            document.getElementById('loginPopup').classList.add('hidden');
+        }
+
+        function closePaidPopup() {
+            document.getElementById('paidPopup').classList.add('hidden');
+        }
+
+        // Unlock and Logout
+        function unlockGenerator() {
+            document.getElementById('generatorTitle').innerHTML = 'Premium Calligraphy Signature Generator <span class="text-[#FFD700] text-sm ml-2">Premium Member</span>';
+            const name = document.getElementById('name').value.trim();
+            if (name) generateSignatures();
+        }
+
+        function logout() {
+            localStorage.setItem('isLoggedIn', 'false');
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('userWhatsapp');
+            isLoggedIn = false;
+            document.getElementById('generatorTitle').innerHTML = 'Premium Calligraphy Signature Generator';
+            document.getElementById('signatureContainer').classList.add('hidden');
+            window.location.hash = '';
+            updateAuthButton();
+            updateBanners();
+        }
+
+        // Event Listeners
+        const colorSlider = document.getElementById('colorSlider');
+        const colorPreview = document.getElementById('colorPreview');
+        colorSlider.addEventListener('input', (e) => {
+            const hue = e.target.value;
+            let color = hue == 0 ? "white" : hue == 360 ? "black" : `hsl(${hue}, 100%, 50%)`;
+            currentColor = color;
+            colorPreview.style.backgroundColor = currentColor;
+            colorPreview.style.left = `${(hue / 360) * colorSlider.offsetWidth}px`;
+            if (!document.getElementById('signatureContainer').classList.contains('hidden')) {
+                const name = document.getElementById('name').value.trim();
+                if (name) renderSignatures(name);
+            }
+        });
+
+        document.getElementById('fontSizeSlider').addEventListener('input', (e) => {
+            currentFontSize = parseInt(e.target.value);
+            if (!document.getElementById('signatureContainer').classList.contains('hidden')) {
+                const name = document.getElementById('name').value.trim();
+                if (name) renderSignatures(name);
+            }
+        });
+
+        document.getElementById('bgColorSelect').addEventListener('change', (e) => {
+            currentBgColor = e.target.value;
+            currentColor = currentBgColor === "black" ? "white" : "black";
+            colorPreview.style.backgroundColor = currentColor;
+            colorSlider.value = currentBgColor === "black" ? 0 : 360;
+            colorPreview.style.left = currentBgColor === "black" ? "0%" : "100%";
+            if (!document.getElementById('signatureContainer').classList.contains('hidden')) {
+                const name = document.getElementById('name').value.trim();
+                if (name) renderSignatures(name);
+            }
+        });
+
+        // Loading Screen
+        function showLoading(callback) {
+            const overlay = document.getElementById('loadingOverlay');
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                callback();
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
