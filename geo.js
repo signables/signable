@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const currencyElements = document.querySelectorAll(".currency");
 
             // Define Payment Links
-            const razorpayLink = "#";  // Replace with actual Razorpay link
+            const razorpayLink = "https://rzp.io/rzp/Fnxa8lV";  // Replace with actual Razorpay link
             const paypalLink = "https://www.paypal.com/ncp/payment/BB4TF2NEW8HBL";  // Replace with actual PayPal link
 
             if (userCountry === "IN") {
-                priceElements.forEach(el => el.textContent = "1,999");
+                priceElements.forEach(el => el.textContent = "999");
                 currencyElements.forEach(el => el.textContent = "₹");
                 localStorage.setItem("paymentLink", razorpayLink);  // Save Razorpay link
             } else {
